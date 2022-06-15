@@ -10,6 +10,13 @@ const from_phone = process.env.FROM_NUMBER
 const app = express();
 app.use(morgan('dev'));
 app.post('/sms',(req,res)=>{
+    // const twiml = new messaingResponse();
+    // twiml.message('He recibido tu mensaje');
+    // res.writeHead(200,{'Content-Type': 'text/xml'});
+    // res.end(twiml.toString());
+     res.send(hello);
+ })
+app.post('/sms',(req,res)=>{
    // const twiml = new messaingResponse();
    // twiml.message('He recibido tu mensaje');
    // res.writeHead(200,{'Content-Type': 'text/xml'});
