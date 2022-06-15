@@ -8,6 +8,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const my_phone = process.env.TO_NUMBER
 const from_phone = process.env.FROM_NUMBER
 const app = express();
+let port = process.env.PORT || 3000;
 app.use(morgan('dev'));
 app.post('/sms',(req,res)=>{
     // const twiml = new messaingResponse();
@@ -55,10 +56,6 @@ app.post('/whats',(req,res)=>{
      res.end("SE ENVIO MENSAJE");
  })
 
-
-
-app.listen(4000,()=> {
-console.log('server on port 4000')
-
-})
-
+ app.listen(port, () => {
+    console.log("App is running on port " + port);
+});
