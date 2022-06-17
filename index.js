@@ -48,7 +48,7 @@ app.post('/whats',(req,res)=>{
           .create({ 
              body: 'Your appointment is coming up on July 21 at 3PM', 
              from: 'whatsapp:+14155238886',       
-             to: 'whatsapp:+5215545883023' 
+             to: 'whatsapp:+525545883023' 
            }) 
           .then(message => console.log(message.sid)) 
           .done();
