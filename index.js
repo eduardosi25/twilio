@@ -63,7 +63,7 @@ app.post('/whats',jsonParser, function (req, res){
     client.messages 
           .create({ 
              body: 'Your appointment is coming up on July 21 at 3PM', 
-             from: 'whatsapp:'+from_phone,       
+             from: 'whatsapp:+18702595345',       
              to: 'whatsapp:'+req.body.phone
            }) 
           .then(message => console.log(message.sid)) 
