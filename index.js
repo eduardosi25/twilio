@@ -49,7 +49,7 @@ app.post('/sms',jsonParser, function (req, res){
             }) 
             .then(message => console.log(message.sid)) 
             .done();
-    res.end("SE ENVIO MENSAJE");
+    res.end("SE ENVIO MENSAJE A "+req.body.phone);
 })
 
 app.post('/whats',(req,res)=>{
