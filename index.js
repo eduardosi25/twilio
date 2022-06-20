@@ -2,6 +2,7 @@ require('dotenv').config()
 //console.log(process.ev.TO_NUMBER)
 const express= require('express')
 const morgan= require('morgan')
+var bodyParser = require('body-parser')
 const messaingResponse = require('twilio').twiml.MessagingResponse;
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -10,6 +11,17 @@ const from_phone = process.env.FROM_NUMBER
 const app = express();
 let port = process.env.PORT || 3000;
 app.use(morgan('dev'));
+// create application/json parser
+var jsonParser = bodyParser.json()
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.configure(function(){
+    app.use(express.bodyParser());
+  });
+ app.listen(port, () => {
+    console.log("App is running on port " + port);
+});
+
 app.post('',(req,res)=>{
     // const twiml = new messaingResponse();
     // twiml.message('He recibido tu mensaje');
@@ -22,7 +34,7 @@ app.post('/sms',(req,res)=>{
    // twiml.message('He recibido tu mensaje');
    // res.writeHead(200,{'Content-Type': 'text/xml'});
    // res.end(twiml.toString());
-   console.log("req",req.body)
+   console.log("req",req.body.phone)
    console.log("res",res)
 //    const client = require('twilio')(accountSid, authToken);
 
@@ -58,6 +70,3 @@ app.post('/whats',(req,res)=>{
      res.end("SE ENVIO MENSAJE");
  })
 
- app.listen(port, () => {
-    console.log("App is running on port " + port);
-});
