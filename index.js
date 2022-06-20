@@ -52,19 +52,19 @@ app.post('/sms',jsonParser, function (req, res){
     res.end("SE ENVIO MENSAJE");
 })
 
-app.post('/whats',jsonParser, function (req, res){
+app.post('/whats',(req,res)=>{
     // const twiml = new messaingResponse();
     // twiml.message('He recibido tu mensaje');
     // res.writeHead(200,{'Content-Type': 'text/xml'});
     // res.end(twiml.toString());
-    console.log("req",req.body.phone)
+
     const client = require('twilio')(accountSid, authToken); 
      
     client.messages 
           .create({ 
              body: 'Your appointment is coming up on July 21 at 3PM', 
              from: 'whatsapp:+14155238886',       
-             to: 'whatsapp:'+req.body.phone
+             to: 'whatsapp:+5215545883023'
            }) 
           .then(message => console.log(message.sid)) 
           .done();
