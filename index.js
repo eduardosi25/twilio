@@ -15,9 +15,8 @@ app.use(morgan('dev'));
 var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-app.configure(function(){
-    app.use(express.bodyParser());
-  });
+
+
  app.listen(port, () => {
     console.log("App is running on port " + port);
 });
@@ -30,7 +29,10 @@ app.post('',(req,res)=>{
      res.send("hello");
  })
 
-
+ app.post('/api', jsonParser, function (req, res) {
+    // create user in req.body
+    res.send('welcome, ' + req.body.phone)
+  })
 
  app.post('/login', urlencodedParser, function (req, res) {
   res.send('welcome, ' + req.body.phone)
