@@ -29,6 +29,12 @@ app.post('',(req,res)=>{
     // res.end(twiml.toString());
      res.send("hello");
  })
+
+
+
+ app.post('/login', urlencodedParser, function (req, res) {
+  res.send('welcome, ' + req.body.phone)
+})
 app.post('/sms',(req,res)=>{
    // const twiml = new messaingResponse();
    // twiml.message('He recibido tu mensaje');
