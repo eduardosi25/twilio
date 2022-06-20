@@ -52,7 +52,7 @@ app.post('/sms',jsonParser, function (req, res){
     res.end("SE ENVIO MENSAJE");
 })
 
-app.post('/whats',jsonParser, function (req, res){
+app.post('/whats',(req,res)=>{
     // const twiml = new messaingResponse();
     // twiml.message('He recibido tu mensaje');
     // res.writeHead(200,{'Content-Type': 'text/xml'});
@@ -63,8 +63,8 @@ app.post('/whats',jsonParser, function (req, res){
     client.messages 
           .create({ 
              body: 'Your appointment is coming up on July 21 at 3PM', 
-             from: 'whatsapp:'+req.body.phone,       
-             to: 'whatsapp:' 
+             from: 'whatsapp:+14155238886',       
+             to: 'whatsapp:'+req.body.phone
            }) 
           .then(message => console.log(message.sid)) 
           .done();
