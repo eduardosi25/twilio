@@ -52,7 +52,7 @@ app.post('/sms',jsonParser, function (req, res){
     res.end("SE ENVIO MENSAJE");
 })
 
-app.post('/whats',(req,res)=>{
+app.post('/whats',jsonParser, function (req, res){
     // const twiml = new messaingResponse();
     // twiml.message('He recibido tu mensaje');
     // res.writeHead(200,{'Content-Type': 'text/xml'});
