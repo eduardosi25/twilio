@@ -22,7 +22,7 @@ app.post('/sms',(req,res)=>{
    // twiml.message('He recibido tu mensaje');
    // res.writeHead(200,{'Content-Type': 'text/xml'});
    // res.end(twiml.toString());
-   console.log("req",req.body.phone)
+   console.log("req",req.body)
    console.log("res",res)
 //    const client = require('twilio')(accountSid, authToken);
 
