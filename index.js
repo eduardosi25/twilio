@@ -57,7 +57,7 @@ app.post('/whats',jsonParser, function (req, res){
     // twiml.message('He recibido tu mensaje');
     // res.writeHead(200,{'Content-Type': 'text/xml'});
     // res.end(twiml.toString());
-
+    console.log("req",req.body.phone)
     const client = require('twilio')(accountSid, authToken); 
      
     client.messages 
