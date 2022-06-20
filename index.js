@@ -22,19 +22,19 @@ app.post('/sms',(req,res)=>{
    // twiml.message('He recibido tu mensaje');
    // res.writeHead(200,{'Content-Type': 'text/xml'});
    // res.end(twiml.toString());
-   console.log("req",req)
+   console.log("req",req.body.phone)
    console.log("res",res)
-   const client = require('twilio')(accountSid, authToken);
+//    const client = require('twilio')(accountSid, authToken);
 
-        console.log(from_phone)
-        client.messages 
-            .create({         
-                to: my_phone,
-                from:from_phone,
-                body: 'Hello edu!'
-            }) 
-            .then(message => console.log(message.sid)) 
-            .done();
+//         console.log(from_phone)
+//         client.messages 
+//             .create({         
+//                 to: my_phone,
+//                 from:from_phone,
+//                 body: 'Hello edu!'
+//             }) 
+//             .then(message => console.log(message.sid)) 
+//             .done();
     res.end("SE ENVIO MENSAJE");
 })
 
